@@ -1,0 +1,11 @@
+# Visual Studio / .NET derleme çıktıları
+bin/
+obj/
+.vs/
+
+# Kullanıcıya özel ayarlar
+*.user
+*.suo
+
+# Yayın profilleri
+**/Properties/PublishProfiles/*.pubxml.user
