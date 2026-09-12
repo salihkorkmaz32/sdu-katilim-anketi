@@ -1,0 +1,120 @@
+﻿@model anket.Models.Katilimci
+
+@{
+    ViewData["Title"] = "SDÜ Katılım Formu";
+}
+
+<div class="container mt-5" style="max-width: 800px;">
+    <div class="card shadow-sm mb-4" style="border-top: 8px solid #673ab7;">
+        <div class="card-body">
+            <h2 class="card-title">SDÜ Katılım Formu</h2>
+            <p class="text-muted">Önemli Bilgilendirme: Kayıt işlemlerini tamamlamaları ve katılım QR kodu oluşturmaları gerekmektedir.</p>
+            <p class="text-danger">* Zorunlu soruyu belirtir</p>
+        </div>
+    </div>
+
+    <form asp-action="Index" method="post">
+
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <label class="form-label">Ad Soyad <span class="text-danger">*</span></label>
+                <input asp-for="AdSoyad" class="form-control border-0 border-bottom rounded-0" placeholder="Yanıtınız" />
+                <span asp-validation-for="AdSoyad" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <label class="form-label">Öğrenci Numarası <span class="text-danger">*</span></label>
+                <input asp-for="OgrenciNumarasi" class="form-control border-0 border-bottom rounded-0" placeholder="Yanıtınız" />
+                <span asp-validation-for="OgrenciNumarasi" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <label class="form-label">Fakülte / Yüksekokul / Meslek Yüksekokulu <span class="text-danger">*</span></label>
+                <input asp-for="Fakulte" class="form-control border-0 border-bottom rounded-0" placeholder="Yanıtınız" />
+                <span asp-validation-for="Fakulte" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <label class="form-label">Bölüm <span class="text-danger">*</span></label>
+                <input asp-for="Bolum" class="form-control border-0 border-bottom rounded-0" placeholder="Yanıtınız" />
+                <span asp-validation-for="Bolum" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <label class="form-label">İletişim Numarası <span class="text-danger">*</span></label>
+                <input asp-for="IletisimNumarasi" class="form-control border-0 border-bottom rounded-0" placeholder="Yanıtınız" />
+                <span asp-validation-for="IletisimNumarasi" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <label class="form-label">(Varsa) Topluluk Üyelik Bilgisi <span class="text-danger">*</span></label>
+                <input asp-for="ToplulukUyeligi" class="form-control border-0 border-bottom rounded-0" placeholder="Yanıtınız" />
+                <span asp-validation-for="ToplulukUyeligi" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <label class="form-label">E posta Adresi <span class="text-danger">*</span></label>
+                <input asp-for="Eposta" type="email" class="form-control border-0 border-bottom rounded-0" placeholder="Yanıtınız" />
+                <span asp-validation-for="Eposta" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <label class="form-label">Fuara katılmak istediğiniz günü seçiniz. <span class="text-danger">*</span></label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="KatilimGunu" value="13 Nisan 2026 Pazartesi" id="gun1">
+                    <label class="form-check-label" for="gun1">13 Nisan 2026 Pazartesi</label>
+                </div>
+                <div class="form-check mt-2">
+                    <input class="form-check-input" type="radio" asp-for="KatilimGunu" value="14 Nisan 2026 Salı" id="gun2">
+                    <label class="form-check-label" for="gun2">14 Nisan 2026 Salı</label>
+                </div>
+                <span asp-validation-for="KatilimGunu" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-3">
+            <div class="card-body">
+                <label class="form-label">Otobüse binmek istediğiniz kalkış noktasını seçiniz. <span class="text-danger">*</span></label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="KalkisNoktasi" value="Süleyman Demirel Üniversitesi Batı Yerleşkesi Rektörlük Önü" id="kalkis1">
+                    <label class="form-check-label" for="kalkis1">Süleyman Demirel Üniversitesi Batı Yerleşkesi Rektörlük Önü</label>
+                </div>
+                <div class="form-check mt-2">
+                    <input class="form-check-input" type="radio" asp-for="KalkisNoktasi" value="İYAŞ AVM Üstgeçidi (Eski Otogar)" id="kalkis2">
+                    <label class="form-check-label" for="kalkis2">İYAŞ AVM Üstgeçidi (Eski Otogar)</label>
+                </div>
+                <span asp-validation-for="KalkisNoktasi" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="card shadow-sm mb-4">
+            <div class="card-body">
+                <label class="form-label">QR kodu oluşturdunuz mu? <span class="text-danger">*</span></label>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" asp-for="QrKodOlusturulduMu" value="true" id="qrEvet">
+                    <label class="form-check-label" for="qrEvet">Evet</label>
+                </div>
+                <span asp-validation-for="QrKodOlusturulduMu" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="d-flex justify-content-between">
+            <button type="submit" class="btn btn-primary px-4 py-2" style="background-color: #673ab7; border-color: #673ab7;">Gönder</button>
+            <button type="reset" class="btn btn-link text-decoration-none" style="color: #673ab7;">Formu temizle</button>
+        </div>
+    </form>
+</div>
